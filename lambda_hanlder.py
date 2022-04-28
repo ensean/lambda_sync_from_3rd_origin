@@ -30,10 +30,8 @@ def lambda_handler(event, context):
             'statusCode': 302,
             'statusDescription': 'File synced to S3, redirect to load it',
             'headers': {
-                'location': [{
-                    'key': 'Location',
-                    'value': urljoin(SERVICE_ENDPOINT, file_uri)
-                }]
+                'location': urljoin(SERVICE_ENDPOINT, file_uri),
+                'cache-control': 'no-store'
             }
         }
 
