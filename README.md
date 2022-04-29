@@ -27,6 +27,7 @@
 
 * origin A: Lambda URL
 * origin B: SIH CloudFront URL
+* 缓存策略中：Minimum TTL需要设置为0
 
 
 
