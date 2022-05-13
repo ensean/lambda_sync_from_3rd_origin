@@ -8,7 +8,7 @@
 ### 配置流程及注意事项
 1. 创建S3桶，并记录S3桶名称
 
-2. 部署Lambda函数，参考[这里](https://github.com/keithrozario/Klayers/tree/master/deployments/python3.9)添加Requests Layer
+2. 部署Lambda函数[lambda_hanlder.py](./lambda_hanlder.py)，参考[这里](https://github.com/keithrozario/Klayers/tree/master/deployments/python3.9)添加Requests Layer
 
 #### Lambda 环境变量
 * endpoint: 外部站点URL
