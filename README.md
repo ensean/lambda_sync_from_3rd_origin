@@ -3,10 +3,10 @@
 通过CloudFront origin group fallover功能，借助Lambda从第三方站点同步文件至S3桶，进而使[SIH](https://github.com/wchaws/serverless-image-handler)支持以第三方站点作为源站。
 
 架构图示意如下
-![](imgs/2022-04-11-09-31-25.png)
+![](./imgs/2022-05-13-09-54-27.png)
 
-#### 配置流程
-1. 参考[这里](https://docs.qq.com/doc/DV3ZVWEtTU0ZFWFpi)部署SIH x-oss-process版本
+### 配置流程及注意事项
+1. 创建S3桶，并记录S3桶名称
 
 2. 部署Lambda函数，参考[这里](https://github.com/keithrozario/Klayers/tree/master/deployments/python3.9)添加Requests Layer
 
@@ -25,13 +25,13 @@
 
 #### CloudFront配置
 
-* origin A: Lambda URL
-* origin B: SIH CloudFront URL
-* 缓存策略中：Minimum TTL需要设置为0
+* origin A: S3桶（带OAI访问）
+* origin B: Lambda Function URL
+* 缓存策略注意事项：Minimum TTL需要设置为0，否则Lambda Function 302被缓存导致循环重定向
 
 
 
-#### 参考资料
+### 参考资料
 
 1. [Lambda URL](https://aws.amazon.com/blogs/aws/announcing-aws-lambda-function-urls-built-in-https-endpoints-for-single-function-microservices/)
 
